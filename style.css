@@ -1,0 +1,913 @@
+/* ==========================================================================
+   LOFTUS ELITE ROOFING - INDUSTRIAL ENTERPRISE DESIGN SYSTEM
+   Typography: Oswald (Display) + Source Sans Pro (Body)
+   Color Palette: #A82020 (Brand Red), #1F2937 (Charcoal)
+   Design Physics: 0px Border Radius (STRICT)
+   ========================================================================== */
+
+/* ==========================================================================
+   GLOBAL RESETS & BASE STYLES
+   ========================================================================== */
+
+* {
+    /* CRITICAL: Enforce 0px border-radius globally */
+    border-radius: 0px !important;
+}
+
+:root {
+    /* Color System - Americana Palette (Red/White/Blue) */
+    --color-brand: #A82020;              /* Primary: Brand Red (CTAs, Icons) */
+    --color-brand-hover: #8B1A1A;        /* Primary Hover State */
+    --color-navy: #0f172a;               /* Tertiary/Accent: Navy Blue (Headings, Trust) */
+    --color-charcoal: #1F2937;           /* Secondary Surface */
+    --color-text-primary: #1A1A1A;       /* Legacy (now using navy for headings) */
+    --color-text-secondary: #4A4A4A;     /* Body Text (Charcoal for readability) */
+    --color-background: #FFFFFF;         /* White Background */
+    
+    /* Typography */
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    
+    /* Spacing */
+    --section-padding: 80px;
+    --container-max-width: 1600px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY SYSTEM
+   ========================================================================== */
+
+.font-display,
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--color-navy);  /* Navy Blue for Americana Trust */
+    line-height: 1.1;
+}
+
+.font-sans {
+    font-family: var(--font-body);
+}
+
+/* Force uppercase on all display elements */
+.font-display {
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   COLOR UTILITIES - AMERICANA PALETTE
+   ========================================================================== */
+
+/* Primary: Brand Red */
+.text-brand {
+    color: var(--color-brand);
+}
+
+.bg-brand {
+    background-color: var(--color-brand);
+}
+
+.border-brand {
+    border-color: var(--color-brand);
+}
+
+/* Tertiary/Accent: Navy Blue */
+.text-navy {
+    color: var(--color-navy);
+}
+
+.bg-navy {
+    background-color: var(--color-navy);
+}
+
+.border-navy {
+    border-color: var(--color-navy);
+}
+
+/* Secondary: Charcoal */
+.bg-charcoal {
+    background-color: var(--color-charcoal);
+}
+
+/* ==========================================================================
+   BUTTON SYSTEM (BRICK STYLE - 0px RADIUS)
+   ========================================================================== */
+
+.btn-primary,
+.btn-secondary,
+button,
+input[type="submit"],
+input[type="button"] {
+    border-radius: 0px !important;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background-color: var(--color-brand);
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-brand-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 32, 32, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: #FFFFFF;
+    color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   FORM ELEMENTS (BRICK STYLE - 0px RADIUS)
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+    border-radius: 0px !important;
+    font-family: var(--font-body);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 3px rgba(168, 32, 32, 0.1);
+}
+
+/* ==========================================================================
+   HEADER & LOGO
+   ========================================================================== */
+
+.logo img {
+    display: block;
+    height: auto;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.logo a:hover img {
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.nav-link {
+    position: relative;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-brand);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   SERVICE CARDS
+   ========================================================================== */
+
+.service-card {
+    border-radius: 0px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    border-color: var(--color-brand);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   PROJECT CARDS
+   ========================================================================== */
+
+.project-card {
+    border-radius: 0px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card img {
+    border-radius: 0px !important;
+}
+
+.project-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   PROJECT IMAGE ADJUSTMENTS - Optimized Framing
+   ========================================================================== */
+
+/* Project 1: Tudor - Show house, minimize sky */
+.project-img-tudor {
+    object-position: center 55%;
+}
+
+.project-card:hover .project-img-tudor {
+    transform: scale(1.08);
+}
+
+/* Project 2: Commercial TPO - Show building AND sign (local recognition) */
+.project-img-tpo {
+    object-position: center 45%;
+}
+
+.project-card:hover .project-img-tpo {
+    transform: scale(1.08);
+}
+
+/* Project 3: Colonial Revival Brick - Perfect composition, minimal adjustment */
+.project-img-colonial-brick {
+    object-position: center center;
+}
+
+.project-card:hover .project-img-colonial-brick {
+    transform: scale(1.08);
+}
+
+/* Project 4: Multi-Level Residential - Clean framing */
+.project-img-multilevel {
+    object-position: center center;
+}
+
+.project-card:hover .project-img-multilevel {
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   HERO SECTION - CORPORATE TRUST AESTHETIC
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: 600px;
+}
+
+.hero-bg {
+    z-index: 0;
+    /* Full-color company image with navy blue overlay tint */
+    /* Creates professional, trustworthy corporate feel */
+}
+
+.hero-overlay {
+    z-index: 1;
+    /* Deep Navy Blue (#0f172a) at 85% opacity */
+    /* Masks red bricks, creates "Secure and Professional" aesthetic */
+    /* Red CTAs "vibrate" off the cool blue background */
+}
+
+/* 25 Year Badge Styling */
+.hero-section .inline-flex,
+footer .inline-flex {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .inline-flex:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+footer .inline-flex {
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
+    :root {
+        --section-padding: 60px;
+    }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+/* Focus visible states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+}
+
+/* Skip to content link for screen readers */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-brand);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* GPU acceleration for animations */
+.btn-primary,
+.btn-secondary,
+.service-card,
+.project-card img {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+    .btn-primary,
+    .btn-secondary,
+    header,
+    footer {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   UTILITY OVERRIDES (Ensuring 0px Border Radius)
+   ========================================================================== */
+
+.rounded-none,
+.rounded-sm,
+.rounded,
+.rounded-md,
+.rounded-lg,
+.rounded-xl,
+.rounded-2xl,
+.rounded-3xl,
+.rounded-full {
+    border-radius: 0px !important;
+}
+
+/* ==========================================================================
+   HOVER EFFECTS & INTERACTIONS
+   ========================================================================== */
+
+.transition-colors {
+    transition-property: color, background-color, border-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.transition-transform {
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* ==========================================================================
+   GRID SYSTEM ENHANCEMENTS
+   ========================================================================== */
+
+.container {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* ==========================================================================
+   LOADING STATES
+   ========================================================================== */
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR (Optional Enhancement)
+   ========================================================================== */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-brand);
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-hover);
+}
+
+/* ==========================================================================
+   TESTIMONIALS - PREMIUM ANIMATIONS & EFFECTS
+   ========================================================================== */
+
+/* Navigation Grid Pattern Background (Americana Crosshairs) */
+#testimonials {
+    position: relative;
+    background-color: #0f172a;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(226, 232, 240, 0.05) 39px, rgba(226, 232, 240, 0.05) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(226, 232, 240, 0.05) 39px, rgba(226, 232, 240, 0.05) 40px);
+    background-size: 40px 40px;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+/* Slow Pulse Animation for Living Background */
+@keyframes gridPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.95;
+    }
+}
+
+/* Scanner Shine Sweep Effect on Testimonial Cards */
+.testimonial-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+}
+
+.testimonial-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(15, 23, 42, 0.6) 50%,
+        transparent 100%
+    );
+    transition: left 0.7s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.testimonial-card:hover::after {
+    left: 100%;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(168, 32, 32, 0.15);
+}
+
+/* Staggered Fade-Up Entrance Animation */
+.testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Uniform Card Heights - Fixed Size */
+.testimonial-card {
+    min-height: 340px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-card .testimonial-text {
+    flex: 1;
+    max-height: 140px;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.5s ease-out;
+    margin-bottom: 8px;
+}
+
+.testimonial-card.expanded .testimonial-text {
+    max-height: 800px;
+}
+
+.testimonial-card.expanded {
+    height: auto;
+    min-height: 340px;
+}
+
+.testimonial-card .testimonial-text.truncated::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, white);
+}
+
+.testimonial-card.expanded .testimonial-text::after {
+    display: none;
+}
+
+.read-more-btn {
+    cursor: pointer;
+    color: #A82020;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s;
+}
+
+.read-more-btn:hover {
+    color: #8B1A1A;
+}
+
+.read-more-btn i {
+    transition: transform 0.3s;
+}
+
+.testimonial-card.expanded .read-more-btn i {
+    transform: rotate(180deg);
+}
+
+/* Staggered Delays for Each Card (9 cards) */
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+.testimonial-card:nth-child(5) { animation-delay: 0.5s; }
+.testimonial-card:nth-child(6) { animation-delay: 0.6s; }
+.testimonial-card:nth-child(7) { animation-delay: 0.7s; }
+.testimonial-card:nth-child(8) { animation-delay: 0.8s; }
+.testimonial-card:nth-child(9) { animation-delay: 0.9s; }
+
+/* GPU Acceleration for Smooth Performance */
+#testimonials,
+.testimonial-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ==========================================================================
+   OUR PROCESS - THE LOFTUS PROTOCOL (HORIZONTAL TIMELINE)
+   ========================================================================== */
+
+/* Process Step Base Styling */
+.process-step {
+    transition: transform 0.3s ease-out;
+}
+
+/* Process Icon Wrapper */
+.process-icon-wrapper {
+    position: relative;
+}
+
+.process-icon-wrapper .w-32 {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.process-step:hover .process-icon-wrapper .w-32 {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(168, 32, 32, 0.2);
+}
+
+/* Radar Pulse Animation (Expanding Ring Effect) */
+/* DEFAULT STATE: Static, no animation */
+.radar-pulse {
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.3s ease;
+}
+
+@keyframes radarPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* HOVER STATE: Activate pulse animation */
+.process-step:hover .radar-pulse {
+    opacity: 1;
+    animation: radarPulse 1.5s ease-out infinite;
+}
+
+/* Process Content Hover Effect */
+.process-content h3 {
+    transition: color 0.3s ease;
+}
+
+.process-step:hover .process-content h3 {
+    color: var(--color-brand) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .process-icon-wrapper .w-32 {
+        width: 96px;
+        height: 96px;
+    }
+    
+    .process-icon-wrapper i {
+        font-size: 3rem;
+    }
+}
+
+/* GPU Acceleration for Smooth Animations */
+.process-step,
+.radar-pulse,
+.process-icon-wrapper {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* ==========================================================================
+   FOUNDER & PROTOCOL - THE SITE COMMANDER
+   ========================================================================== */
+
+/* Founder Photo Styling */
+.founder-photo {
+    transition: filter 0.5s ease, transform 0.3s ease;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Hover Effect: Remove Grayscale (Show Color) */
+.founder-photo-wrapper:hover .founder-photo {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* Checklist Items */
+.loftus-promise-checklist .fas.fa-check-square {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect on Checklist Icons */
+.loftus-promise-checklist > div:hover .fas.fa-check-square {
+    transform: scale(1.2);
+    color: #8B1A1A;
+}
+
+/* Checklist Item Hover */
+.loftus-promise-checklist > div {
+    transition: transform 0.2s ease;
+    cursor: default;
+}
+
+.loftus-promise-checklist > div:hover {
+    transform: translateX(4px);
+}
+
+/* Navy Border Frame Effect */
+.founder-photo-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Add subtle shadow on hover */
+.founder-photo-wrapper:hover {
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .founder-photo {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   STRATEGIC SUPPLY CHAIN - BRAND MARQUEE
+   ========================================================================== */
+
+/* Marquee Infinite Scroll Animation */
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.brand-marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+/* Pause animation on hover (optional) */
+.brand-marquee-wrapper:hover .brand-marquee-track {
+    animation-play-state: paused;
+}
+
+/* Brand Logo Hover Effect */
+.brand-logo-item {
+    transition: transform 0.3s ease;
+}
+
+.brand-logo-item:hover {
+    transform: scale(1.15);
+}
+
+/* Brand Logo Navy Filter - Americana Aesthetic */
+.brand-logo-navy {
+    filter: grayscale(100%) brightness(0.4) sepia(100%) hue-rotate(180deg) saturate(300%);
+    transition: filter 0.4s ease;
+}
+
+/* Hover: Reduce filter to reveal brand colors */
+.brand-logo-item:hover .brand-logo-navy {
+    filter: grayscale(0%) brightness(1) sepia(0%) hue-rotate(0deg) saturate(100%);
+}
+
+/* ==========================================================================
+   GC SERVICES SECTION
+   ========================================================================== */
+
+/* GC Service Card */
+.gc-service-card {
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.gc-service-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    border-left-width: 6px;
+}
+
+.gc-service-card ul li {
+    line-height: 1.6;
+}
+
+.gc-service-card .fa-check {
+    font-size: 0.875rem;
+}
+
+/* Responsive - 2 column on tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .gc-service-card {
+        min-height: 280px;
+    }
+}
+
+/* Mobile - full width */
+@media (max-width: 767px) {
+    .gc-service-card {
+        padding: 1.25rem;
+    }
+    
+    .gc-service-card h3 {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   ASSET LONGEVITY GUIDE - ACCORDION
+   ========================================================================== */
+
+/* Accordion Item */
+.accordion-item {
+    transition: background-color 0.2s ease;
+}
+
+/* Accordion Header */
+.accordion-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-header:focus {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+}
+
+/* Accordion Icon Rotation */
+.accordion-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+/* Rotate icon when expanded */
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(45deg);
+}
+
+/* Accordion Content */
+.accordion-content {
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+/* Accordion Content Open State */
+.accordion-content.open {
+    max-height: 1000px !important;
+}
+
+/* Hover Effect on Accordion Headers */
+.accordion-header:hover {
+    background-color: rgba(243, 244, 246, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .accordion-header h3 {
+        font-size: 1.125rem;
+    }
+    
+    .accordion-content {
+        padding-left: 1rem;
+    }
+}
